@@ -1,7 +1,7 @@
 //Solution to code jam problem : http://goo.gl/B2tS9
 def minScalarProduct( x : List[Int],y : List[Int] ) : Long = {
 
-  val sortedX = x.sortWith(_<_) 
+    val sortedX = x.sortWith(_<_) 
     val sortedY= y.sortWith(_>_)
 
     def scalarProduct(x: List[Int], y: List[Int] ) : Long = x  match {

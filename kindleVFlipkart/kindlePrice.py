@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+##Script is a mess.
+##contact me at abhishek[DOT]kona[AT]gmail.com, if you need more details
 import urllib2
 from BeautifulSoup import BeautifulSoup
 import sys

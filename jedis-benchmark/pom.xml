@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--suppress MavenModelInspection -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -8,6 +9,13 @@
     <artifactId>jedis-benchmark</artifactId>
     <version>1.0</version>
 
+    <repositories>
+        <repository>
+            <id>Sonatype</id>
+            <name>Sonatype Release</name>
+            <url>http://oss.sonatype.org/content/repositories/releases</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>redis.clients</groupId>
@@ -29,8 +37,19 @@
             <artifactId>jcommander</artifactId>
             <version>1.17</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ning</groupId>
+            <artifactId>async-http-client</artifactId>
+            <version>1.6.2</version>
+        </dependency>
 
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -38,7 +57,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>in.sheki.jedis.benchmark.Benchmark</mainClass>
+                            <mainClass>in.sheki.jedis.benchmark.HttpBenchmark</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

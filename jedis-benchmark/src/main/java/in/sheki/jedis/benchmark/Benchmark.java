@@ -97,7 +97,7 @@ public class Benchmark
         System.out.println("99 % <=" + TimeUnit.NANOSECONDS.toMillis(points.get((points.size() * 99 / 100) - 1)));
         System.out.println("99.9 % <=" + TimeUnit.NANOSECONDS.toMillis(points.get((points.size() * 999 / 1000) - 1)));
         System.out.println("100 % <=" + TimeUnit.NANOSECONDS.toMillis(points.get(points.size() - 1)));
-        System.out.println((noOps_ / TimeUnit.NANOSECONDS.toMillis(totalNanoRunTime)) * 1000 + " Operations per s");
+        System.out.println((noOps_ * 1000 / TimeUnit.NANOSECONDS.toMillis(totalNanoRunTime)) + " Operations per second");
     }
 
     public static void main(String[] args) throws InterruptedException

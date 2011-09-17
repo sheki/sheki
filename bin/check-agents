@@ -1,0 +1,12 @@
+#!/bin/bash
+#Display agent logs of all webservers
+noline=25
+
+
+set -e
+set -x
+echo $noline
+ssh web1.dc.flipkart.com tail -n $noline /opt/log/agent.log
+ssh web3.dc.flipkart.com tail -n $noline /opt/log/agent.log
+ssh web2.dc.flipkart.com tail  -n $noline /opt/log/agent.log
+ssh web4.dc.flipkart.com tail   -n $noline  /opt/log/agent.log

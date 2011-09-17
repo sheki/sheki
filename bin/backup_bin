@@ -1,0 +1,9 @@
+#!/bin/bash -e
+cp -rf ~/bin ~/github/sheki/
+echo "Great success begins at $(date)"
+pushd ~/github/sheki
+tag=$(date "+%d-%m-%Y")
+git commit bin -m"bin backup for $tag"
+git push origin
+popd
+echo "Great success at $(date)"

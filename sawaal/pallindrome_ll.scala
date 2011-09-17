@@ -1,12 +1,17 @@
+
+
 /**
 *Program to check if a linked list is a pallindrome.
+* Problem : http://geeksforgeeks.org/?p=1072
 *@author Abhishek Kona
 */
+
 
 case class Node(val  data : Int, val next : Option[Node])
 {
   override def toString(): String = "node "+data
 }
+
 def printLinkedList (  node : Option[Node] ) : String  ={
   node match {
     case None => " " 
@@ -14,6 +19,11 @@ def printLinkedList (  node : Option[Node] ) : String  ={
   }
 }
 
+def isPallindrome(head : Option[Node]   ) : Boolean =
+{   
+    
+      
+}
 
 val sizeLL= Console.readInt
 var next :Option[Node] = None
@@ -24,3 +34,5 @@ for (i <- 0 until sizeLL)
     //TODO fill up the driver
 }
 Console.println(printLinkedList(next))
+
+

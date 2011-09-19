@@ -1,6 +1,0 @@
- #!/bin/bash
-
-#script to add ssh keys to a host, no passsword required for furhter login
-
-ssh abhishekk@$1 mkdir -p .ssh
-cat ~/.ssh/id_rsa.pub | ssh abhishekk@$1 'cat >> .ssh/authorized_keys'

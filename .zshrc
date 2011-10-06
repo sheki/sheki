@@ -25,8 +25,8 @@ ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pip brew vi-mode autojump )
-
+plugins=(git pip brew autojump vi-mode )
+bindkey -M vicmd '?' history-incremental-search-backward
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
@@ -59,7 +59,20 @@ alias mi=" mvn idea:idea -DdownloadSources=true -DdownloadJavadocs=true"
 alias me="mvn eclipse:clean eclipse:eclipse -DdownloadSources=true"
 
 ##Codereview 
-alias codereview='/usr/bin/upload.py -s codereview.flipkart.com'
+alias codereview='~/bin/upload.py -s codereview.flipkart.com'
 alias stag=' date "+nm%d%m%Y-%H%Mkona"'
 
 alias home='ssh pf-fq2.nm.flipkart.com'
+alias mongo='mongod --dbpath ~/tmp/mongodata'
+export JAVA_HOME=$(/usr/libexec/java_home) 
+
+
+export SVN_EDITOR="vim"
+
+
+function dad () {
+    cd ..
+    while [[ ! -e "pom.xml" && ! -e "build.sbt" ]]; do 
+        cd ..
+    done
+}

@@ -1,7 +1,14 @@
+#content {
+    overflow: visible;
+    margin : 0em;
+}
+
 #bodyContent {
     font-family :  "Lucida Grande", "Lucida Sans Unicode", Calibri, Arial, Helvetica, Sans, FreeSans, Jamrul, Garuda, Kalimati;
     text-align: justify; 
     text-justify: newspaper;
+    width : 100%;
+    float : right;
 }
 
 #mw-panel {
@@ -10,3 +17,5 @@
 #wlm-banner {
     display:none;
 }
+
+

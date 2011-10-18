@@ -76,3 +76,6 @@ function dad () {
         cd ..
     done
 }
+
+
+export ZSH=$HOME/.oh-my-zsh

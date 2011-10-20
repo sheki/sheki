@@ -79,3 +79,6 @@ function dad () {
 
 
 export ZSH=$HOME/.oh-my-zsh
+
+
+ [[ -s "/Users/abhishekk/.rvm/scripts/rvm" ]] && source "/Users/abhishekk/.rvm/scripts/rvm"

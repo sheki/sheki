@@ -7,3 +7,5 @@ skips :: [a] -> [[a]]
 skips l = let 
   skipHelp n = takeN (drop (n - 1) l) n
   in map skipHelp [1..(length l)]
+
+localMaxima :: [Integer] -> [Integer]

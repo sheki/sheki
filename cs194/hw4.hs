@@ -52,11 +52,11 @@ sieveSundaram n = let
   removal = map (\(i, j) -> i + j + 2*i*j)  (filter (\(i, j) -> i <= j) (cartProd [1..n] [1..n]))
   rest = [1..n] \\ removal 
   in map (\x -> (2*x) + 1) rest
---
--- myRev :: [a] -> [a]
--- myRev l = foldr (\xs _ ->  xs) [] l
---
--- -- myFoldl :: (a -> b -> a) -> a -> [b] -> a
--- myFoldl f base = foldr f base  . myRev xs
+
+myRev :: [a] -> [a]
+myRev = foldr (\xs acc ->  acc ++ [xs]) []
+
+myFoldl :: (a -> b -> a) -> a -> [b] -> a
+myFoldl f base x = (foldr (\x y -> (f y x)) base  (myRev x))
 --
 --

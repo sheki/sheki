@@ -21,3 +21,4 @@ histogram arr = let
   maxSize = maximum cntArr
   row n = map (\x -> if x >= n then '*' else ' ')  cntArr 
   in (intercalate "\n" (map row (reverse [1..maxSize]))) ++ "\n==========\n0123456789\n"
+

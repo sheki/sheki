@@ -22,6 +22,9 @@ description:         Haskell CLI app to find biggest gainers and loosers
 dependencies:
 - base >= 4.7 && < 5
 - wreq
+- aeson
+- scientific
+- lens
 
 library:
   source-dirs: src

@@ -43,14 +43,29 @@ deltaPercent a = 100.0 * (delta a) / (doublePrice (open a))
 generateMsgStr :: String -> APIResponse -> String
 generateMsgStr sym x = sym ++ " " ++ (show (deltaPercent x))
 
-getStockPrice :: String -> IO ()
+getStockPrice :: String -> IO (String, APIResponse)
 getStockPrice sym = do
   r <- asJSON =<< get (generateURL sym)
   let resp = (r ^. responseBody)
-  let msg  = generateMsgStr sym resp
-  putStrLn msg
+  return (sym, resp)
 
 getTickers = map parseTicker . lines
 
-parseStocks :: String -> [IO ()]
-parseStocks = map getStockPrice . getTickers
+sortByDifference :: [(String, APIResponse)] -> [(String, APIResponse)]
+sortByDifference =
+  sortBy (\(_, x) (_, y) -> compare (deltaPercent x) (deltaPercent y))
+
+sorter = fmap sortByDifference
+
+genMsg = intercalate "\n" . map (\(x, y) -> generateMsgStr x y) . take 5
+
+withHeader :: String -> [(String, APIResponse)] -> String
+withHeader x y = x ++ "\n" ++ (genMsg y)
+
+finalMessage x =
+  (withHeader "==Gainers==" x) ++ (withHeader "==Loosers==" (reverse x))
+
+driver = sorter . mapM getStockPrice . getTickers
+
+parseStocks :: String -> IO String
+parseStocks = fmap finalMessage . driver

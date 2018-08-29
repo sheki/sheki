@@ -1,14 +1,9 @@
 module Main where
 
-import Lib
-
-runall :: [IO ()] -> IO ()
-runall [] = return ()
-runall (firstelem:remainingelems) =
-    do firstelem
-       runall remainingelems
+import           Lib
 
 main :: IO ()
-main = do 
+main = do
   contents <- readFile "stocks.txt"
-  runall (parseStocks contents)
+  output   <- (parseStocks contents)
+  putStr output

@@ -63,7 +63,7 @@ withHeader :: String -> [(String, APIResponse)] -> String
 withHeader x y = x ++ "\n" ++ (genMsg y)
 
 finalMessage x =
-  (withHeader "==Gainers==" x) ++ (withHeader "==Loosers==" (reverse x))
+  (withHeader "==📉📉📉📉📉📉📉==" x) ++"\n" ++ (withHeader "==📈📈📈📈📈📈📈==" (reverse x))
 
 driver = sorter . mapM getStockPrice . getTickers
 

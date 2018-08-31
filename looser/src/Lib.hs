@@ -8,14 +8,14 @@ module Lib
 where
 
 import           Data.List
+import           Data.List.Split
 import           GHC.Generics
 import           Data.Aeson
 import           Data.Scientific
 import           Control.Lens
 import           Network.Wreq
-
-parseTicker :: String -> String
-parseTicker = takeWhile (\x -> x /= ',')
+import           Text.Printf
+import           Control.Concurrent.ParallelIO.Global
 
 data Price = Price {
   price :: Scientific,
@@ -32,6 +32,12 @@ data APIResponse = APIResponse {
   low :: Scientific
 } deriving (Generic, Show, ToJSON, FromJSON)
 
+data Stock = Stock {
+  ticker :: String,
+  name :: String,
+  industry :: String
+}
+
 generateURL :: String -> String
 generateURL x = "https://api.iextrading.com/1.0/stock/" ++ x ++ "/ohlc"
 
@@ -40,32 +46,44 @@ delta a = (doublePrice (close a)) - (doublePrice (open a))
 deltaPercent :: APIResponse -> Double
 deltaPercent a = 100.0 * (delta a) / (doublePrice (open a))
 
-generateMsgStr :: String -> APIResponse -> String
-generateMsgStr sym x = sym ++ " " ++ (show (deltaPercent x))
+generateMsgStr :: Stock -> APIResponse -> String
+generateMsgStr sym x =
+  printf "%s %.2f %s %s" (ticker sym) (deltaPercent x) (name sym) (industry sym)
 
-getStockPrice :: String -> IO (String, APIResponse)
-getStockPrice sym = do
-  r <- asJSON =<< get (generateURL sym)
+getStockPrice :: Stock -> IO (Stock, APIResponse)
+getStockPrice s = do
+  r <- asJSON =<< get (generateURL (ticker s))
   let resp = (r ^. responseBody)
-  return (sym, resp)
+  return (s, resp)
+
+buildStock :: [String] -> Stock
+buildStock (x : y : z : xs) = Stock x y z
+buildStock (x     : y : []) = Stock x y ""
+buildStock (x         : []) = Stock x "" ""
+buildStock _                = Stock "" "" ""
+
+parseTicker = buildStock . splitOn ","
 
 getTickers = map parseTicker . lines
 
-sortByDifference :: [(String, APIResponse)] -> [(String, APIResponse)]
+sortByDifference :: [(a, APIResponse)] -> [(a, APIResponse)]
 sortByDifference =
   sortBy (\(_, x) (_, y) -> compare (deltaPercent x) (deltaPercent y))
 
 sorter = fmap sortByDifference
 
-genMsg = intercalate "\n" . map (\(x, y) -> generateMsgStr x y) . take 5
+genMsg = intercalate "\n" . map (\(x, y) -> generateMsgStr x y) . take 10
 
-withHeader :: String -> [(String, APIResponse)] -> String
+withHeader :: String -> [(Stock, APIResponse)] -> String
 withHeader x y = x ++ "\n" ++ (genMsg y)
 
 finalMessage x =
-  (withHeader "==📉📉📉📉📉📉📉==" x) ++"\n" ++ (withHeader "==📈📈📈📈📈📈📈==" (reverse x))
+  (withHeader "==📉📉📉📉📉📉📉==" x)
+    ++ "\n"
+    ++ (withHeader "==📈📈📈📈📈📈📈==" (reverse x))
+    ++ "\n"
 
-driver = sorter . mapM getStockPrice . getTickers
+driver = sorter . parallel . map getStockPrice . getTickers
 
 parseStocks :: String -> IO String
 parseStocks = fmap finalMessage . driver

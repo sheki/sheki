@@ -25,6 +25,8 @@ dependencies:
 - aeson
 - scientific
 - lens
+- split
+- parallel-io
 
 library:
   source-dirs: src

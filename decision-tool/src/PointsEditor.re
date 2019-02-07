@@ -105,7 +105,7 @@ type action =
   | Save(string);
 let component = ReasonReact.reducerComponent("PointsEditor");
 
-let make = _children => {
+let make = (~onComplete, _children) => {
   ...component,
   initialState: () => {points: [], addingNew: false},
   reducer: (action, state) =>
@@ -121,12 +121,31 @@ let make = _children => {
         {
           self.state.addingNew ?
             <PointEditRow onComplete={text => self.send(Save(text))} /> :
-            <button
-              type_="button"
-              onClick={_e => self.send(Add)}
-              className="c-button u-small">
-              {ReasonReact.string("Add")}
-            </button>
+            <div
+              style={
+                ReactDOMRe.Style.make(
+                  ~marginTop="5px",
+                  ~display="flex",
+                  ~flexDirection="row",
+                  ~justifyContent="flexStart",
+                  (),
+                )
+              }>
+              <button
+                style={ReactDOMRe.Style.make(~marginRight="10px", ())}
+                type_="button"
+                onClick={_e => self.send(Add)}
+                className="c-button">
+                {ReasonReact.string("Add")}
+              </button>
+              <button
+                style={ReactDOMRe.Style.make(~marginRight="10px", ())}
+                type_="button"
+                onClick={_e => onComplete(self.state.points)}
+                className="c-button u-small">
+                {ReasonReact.string("Done")}
+              </button>
+            </div>
         }
       </div>
     </div>,

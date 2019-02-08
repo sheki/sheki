@@ -49,6 +49,7 @@ let make = _children => {
           ~display="flex",
           ~flexDirection="column",
           ~alignItems="center",
+          ~marginTop="10px",
           (),
         )
       }>

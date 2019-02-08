@@ -5,7 +5,8 @@ module OptionEditor = {
     render: _self =>
       <div className="c-card">
         <div className="c-card__item c-card__item--divider">
-        {ReasonReact.string(heading) }</div>
+          {ReasonReact.string(heading)}
+        </div>
         <div className="c-card__item  ">
           <p className="c-paragraph">
             <input
@@ -19,11 +20,12 @@ module OptionEditor = {
                 )
               }
               type_="text"
-              value=value
+              value
               onChange={
-                event => ignore(onChange(ReactEvent.Form.target(event)##value))
+                event =>
+                  ignore(onChange(ReactEvent.Form.target(event)##value))
               }
-              size=80
+              size=50
             />
           </p>
         </div>
@@ -36,20 +38,31 @@ let component = ReasonReact.statelessComponent("WriteDecisions");
 let make = (~decisionA: string, ~decisionB: string, ~onChange, _children) => {
   ...component,
   render: _self =>
-    <div className="o-grid">
-      <div className="o-grid__cell o-grid__cell--width-50">
-        <OptionEditor
-          value=decisionA
-          heading="Option A"
-          onChange={optionA => onChange(optionA, decisionB)}
-        />
-      </div>
-      <div className="o-grid__cell o-grid__cell--width-50">
-        <OptionEditor
-          value=decisionB
-          heading="Option B"
-          onChange={optionB => onChange(decisionA, optionB)}
-        />
+    <div>
+      <h2> {ReasonReact.string("Write your options")} </h2>
+      <div
+        style={
+          ReactDOMRe.Style.make(
+            ~display="flex",
+            ~flexDirection="row",
+            ~marginTop="10px",
+            (),
+          )
+        }>
+        <div className="u-pillar-box-super">
+          <OptionEditor
+            value=decisionA
+            heading="Option A"
+            onChange={optionA => onChange(optionA, decisionB)}
+          />
+        </div>
+        <div className="u-pillar-box-super">
+          <OptionEditor
+            value=decisionB
+            heading="Option B"
+            onChange={optionB => onChange(decisionA, optionB)}
+          />
+        </div>
       </div>
     </div>,
 };

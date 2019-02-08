@@ -95,32 +95,37 @@ module PointEditRow = {
   };
 };
 
-type state = {
-  points: list(string),
-  addingNew: bool,
-};
+type state = {addingNew: bool};
 
 type action =
   | Add
-  | Save(string);
+  | Done(list(string));
 let component = ReasonReact.reducerComponent("PointsEditor");
 
-let make = (~onComplete, _children) => {
+let make = (~heading, ~onChange, ~points, _children) => {
   ...component,
-  initialState: () => {points: [], addingNew: false},
-  reducer: (action, state) =>
+  initialState: () => {addingNew: false},
+  reducer: (action, _state) =>
     switch (action) {
-    | Add => ReasonReact.Update({...state, addingNew: true})
-    | Save(text) =>
-      ReasonReact.Update({addingNew: false, points: state.points @ [text]})
+    | Add => ReasonReact.Update({addingNew: true})
+    | Done(points) =>
+      ReasonReact.UpdateWithSideEffects(
+        {addingNew: false},
+        (self => onChange(points)),
+      )
     },
   render: self =>
     <div className="c-card">
+      <div className="c-card__item c-card__item--divider">
+        {ReasonReact.string(heading)}
+      </div>
       <div className="c-card__body">
-        <PointList points={self.state.points} />
+        <PointList points />
         {
           self.state.addingNew ?
-            <PointEditRow onComplete={text => self.send(Save(text))} /> :
+            <PointEditRow
+              onComplete={text => self.send(Done(points @ [text]))}
+            /> :
             <div
               style={
                 ReactDOMRe.Style.make(
@@ -137,13 +142,6 @@ let make = (~onComplete, _children) => {
                 onClick={_e => self.send(Add)}
                 className="c-button">
                 {ReasonReact.string("Add")}
-              </button>
-              <button
-                style={ReactDOMRe.Style.make(~marginRight="10px", ())}
-                type_="button"
-                onClick={_e => onComplete(self.state.points)}
-                className="c-button u-small">
-                {ReasonReact.string("Done")}
               </button>
             </div>
         }

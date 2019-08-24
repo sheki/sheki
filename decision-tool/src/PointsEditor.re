@@ -111,7 +111,7 @@ let make = (~heading, ~onChange, ~points, _children) => {
     | Done(points) =>
       ReasonReact.UpdateWithSideEffects(
         {addingNew: false},
-        (self => onChange(points)),
+        (_ => onChange(points)),
       )
     },
   render: self =>

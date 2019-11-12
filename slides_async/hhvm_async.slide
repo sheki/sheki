@@ -39,6 +39,7 @@ Await cedes control to the HHVM scheduler to make a decision to see if it can sc
 - Do not await in a loop.
 - Try not to join in a loop.
 - Do not make functions that do not perform any IO to be async, its harmless but pointless.
+- Lets try to make all ud functions async
 
 FB typically has one join call at the top of each API.
 

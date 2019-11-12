@@ -1,0 +1,51 @@
+Async + HHVM
+
+* What is Async
+- Async is not multithreading
+- HHVM still executes a program's code in one main request thread—but other operations can now execute without taking up time in that thread that code could be using for other purposes.
+- All code executes in the main request thread, but I/O does not block it, and multiple I/O or other async tasks can execute *concurrently*
+
+* What is Async
+.image async-slow-curl.png 500 500
+
+* Awaitables
+
+.code awaitable.hack
+When we want to get a result out of an awaitable in a non async function we use HH\Asio\join, which takes an Awaitable and blocks until it resolves to a result.
+.code awaitable2.hack
+
+* Some rules
+
+- We should not call join inside an async function. This would defeat the purpose of async, as the awaitable and any dependencies will run to completion synchronously, stopping any other awaitables from running.
+- Do not call join in a loop, this makes the execution serial when it could have been concurrent.
+
+  HH\Lib\Vec\from_async convert a list of Awaitables to a single Awaitable
+
+  HH\Lib\Dict\from_async exercise for the reader
+
+* Example: Vec\from_async
+.code from_async.hack
+
+* Await, who goes there
+
+In most cases, we will prefer to await an Awaitable, so that other tasks can execute while our blocking operation completes. Note however, that only async functions can yield control to other asyncs, so await may therefore only be used in an async.
+.code await.hack
+
+Await cedes control to the HHVM scheduler to make a decision to see if it can schedule some other work.
+
+* Gotchas
+- Note that side effects in async functions can happen in an unpredictable order.
+- Vec\from_async can consume more memory.
+- Do not await in a loop.
+- Try not to join in a loop.
+- Do not make functions that do not perform any IO to be async, its harmless but pointless.
+
+FB typically has one join call at the top of each API.
+
+* Why do I have to do all this work
+
+Think of async as self checkout at the store.
+You have to do a little bit of extra work (mark functions with async / bag your own groceries).
+But in the long term stuff will get cheaper (or faster).
+
+.image checkout.jpg 400 400

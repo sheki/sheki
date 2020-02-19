@@ -1,0 +1,8 @@
+Configuring SHA-1.6.4.4...
+clang: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Preprocessing library for SHA-1.6.4.4..
+Building library for SHA-1.6.4.4..
+[1 of 1] Compiling Data.Digest.Pure.SHA ( src/Data/Digest/Pure/SHA.hs, .stack-work/dist/x86_64-osx/Cabal-2.2.0.1/build/Data/Digest/Pure/SHA.o )
+ignoring (possibly broken) abi-depends field for packages
+Installing library in /Users/akona/.stack/snapshots/x86_64-osx/lts-12.7/8.4.3/lib/x86_64-osx-ghc-8.4.3/SHA-1.6.4.4-J97i4k52krALB5u9VxmQ73
+Registering library for SHA-1.6.4.4..

@@ -503,3 +503,17 @@ YUM,Yum! Brands Inc,Consumer Discretionary
 ZBH,Zimmer Biomet Holdings,Health Care
 ZION,Zions Bancorp,Financials
 ZTS,Zoetis,Health Care
+ZTS,Zoetis,Health Care
+SNAP,Snapchat,Information Technology
+WORK,Slack,Information Technology
+TWLO,Twilio,Information Technology
+FSLY,Fastly,Information Techology
+DBX,Dropbox,Information Technology
+PANW,Palo Alto Netowkrs,Information Technology
+ZM,Zoom Video communications,Information Technology
+LULU,Lululemon,Consumer Discretionary
+PINS,Pinterest,Information Technology
+ETSY,Etsy,Information Technology
+SHOP,Shopify,Information Technology
+SQ,Square,Information Technology
+TWTR,Twitter,Information Technology

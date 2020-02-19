@@ -1,0 +1,80 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: ee7bcfd3adeac1f20473b93d97a8de058414d6c870b462f0e35ae11920d2e3d5
+
+name:           looser
+version:        0.1.0.0
+description:    Haskell CLI app to find biggest gainers and loosers
+homepage:       https://github.com/githubuser/looser#readme
+bug-reports:    https://github.com/githubuser/looser/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2018 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/looser
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_looser
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , lens
+    , parallel-io
+    , scientific
+    , split
+    , wreq
+  default-language: Haskell2010
+
+executable looser-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_looser
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , lens
+    , looser
+    , parallel-io
+    , scientific
+    , split
+    , wreq
+  default-language: Haskell2010
+
+test-suite looser-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_looser
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , lens
+    , looser
+    , parallel-io
+    , scientific
+    , split
+    , wreq
+  default-language: Haskell2010

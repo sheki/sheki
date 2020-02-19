@@ -78,9 +78,9 @@ withHeader :: String -> [(Stock, APIResponse)] -> String
 withHeader x y = x ++ "\n" ++ (genMsg y)
 
 finalMessage x =
-  (withHeader "==📉📉📉📉📉📉📉==" x)
+  (withHeader "==📈📈📈📈📈📈📈=="  x)
     ++ "\n"
-    ++ (withHeader "==📈📈📈📈📈📈📈==" (reverse x))
+    ++ (withHeader "==📉📉📉📉📉📉📉==" (reverse x))
     ++ "\n"
 
 driver = sorter . parallel . map getStockPrice . getTickers

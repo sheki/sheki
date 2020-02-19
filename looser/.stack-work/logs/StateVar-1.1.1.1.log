@@ -1,0 +1,8 @@
+Configuring StateVar-1.1.1.1...
+clang: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Preprocessing library for StateVar-1.1.1.1..
+Building library for StateVar-1.1.1.1..
+[1 of 1] Compiling Data.StateVar    ( src/Data/StateVar.hs, .stack-work/dist/x86_64-osx/Cabal-2.2.0.1/build/Data/StateVar.o )
+ignoring (possibly broken) abi-depends field for packages
+Installing library in /Users/akona/.stack/snapshots/x86_64-osx/lts-12.7/8.4.3/lib/x86_64-osx-ghc-8.4.3/StateVar-1.1.1.1-5zTmcSrVbN7I4w3ZMeZaTb
+Registering library for StateVar-1.1.1.1..

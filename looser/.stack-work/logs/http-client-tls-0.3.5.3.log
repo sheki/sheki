@@ -1,0 +1,8 @@
+Configuring http-client-tls-0.3.5.3...
+clang: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Preprocessing library for http-client-tls-0.3.5.3..
+Building library for http-client-tls-0.3.5.3..
+[1 of 1] Compiling Network.HTTP.Client.TLS ( Network/HTTP/Client/TLS.hs, .stack-work/dist/x86_64-osx/Cabal-2.2.0.1/build/Network/HTTP/Client/TLS.o )
+ignoring (possibly broken) abi-depends field for packages
+Installing library in /Users/akona/.stack/snapshots/x86_64-osx/lts-12.7/8.4.3/lib/x86_64-osx-ghc-8.4.3/http-client-tls-0.3.5.3-JvEFvrSfDce4D68NILbZUU
+Registering library for http-client-tls-0.3.5.3..

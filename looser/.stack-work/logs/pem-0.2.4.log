@@ -1,0 +1,11 @@
+Configuring pem-0.2.4...
+clang: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Preprocessing library for pem-0.2.4..
+Building library for pem-0.2.4..
+[1 of 4] Compiling Data.PEM.Types   ( Data/PEM/Types.hs, .stack-work/dist/x86_64-osx/Cabal-2.2.0.1/build/Data/PEM/Types.o )
+[2 of 4] Compiling Data.PEM.Parser  ( Data/PEM/Parser.hs, .stack-work/dist/x86_64-osx/Cabal-2.2.0.1/build/Data/PEM/Parser.o )
+[3 of 4] Compiling Data.PEM.Writer  ( Data/PEM/Writer.hs, .stack-work/dist/x86_64-osx/Cabal-2.2.0.1/build/Data/PEM/Writer.o )
+[4 of 4] Compiling Data.PEM         ( Data/PEM.hs, .stack-work/dist/x86_64-osx/Cabal-2.2.0.1/build/Data/PEM.o )
+ignoring (possibly broken) abi-depends field for packages
+Installing library in /Users/akona/.stack/snapshots/x86_64-osx/lts-12.7/8.4.3/lib/x86_64-osx-ghc-8.4.3/pem-0.2.4-7ryuq2Mshdt4SvkOTxPgQb
+Registering library for pem-0.2.4..

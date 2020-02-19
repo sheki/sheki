@@ -2,8 +2,7 @@ MMM,3M Company,Industrials
 AOS,A.O. Smith Corp,Industrials
 ABT,Abbott Laboratories,Health Care
 ABBV,AbbVie Inc.,Health Care
-ACN,Accenture plc,Information Technology
-ATVI,Activision Blizzard,Information Technology
+ACN,Accenture plc,Information Technology ATVI,Activision Blizzard,Information Technology
 AYI,Acuity Brands Inc,Industrials
 ADBE,Adobe Systems Inc,Information Technology
 AAP,Advance Auto Parts,Consumer Discretionary
@@ -517,3 +516,11 @@ ETSY,Etsy,Information Technology
 SHOP,Shopify,Information Technology
 SQ,Square,Information Technology
 TWTR,Twitter,Information Technology
+WORK,Slack,Information Technology
+MDB,Mongo DB,Information Technology
+TEAM,Atlassian,Information Technology
+TSLA,Tesla,Industrials
+BX,Blackstone Group,Private Equity
+APO,Apollo Global Management,Private Equity
+CG,CARLYLE GROUP INC,Private Equity
+ATVI,Activision Blizzard,Information Technology

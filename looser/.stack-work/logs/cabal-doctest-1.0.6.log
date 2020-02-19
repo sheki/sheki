@@ -1,8 +1,0 @@
-Configuring cabal-doctest-1.0.6...
-clang: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
-Preprocessing library for cabal-doctest-1.0.6..
-Building library for cabal-doctest-1.0.6..
-[1 of 1] Compiling Distribution.Extra.Doctest ( src/Distribution/Extra/Doctest.hs, .stack-work/dist/x86_64-osx/Cabal-2.2.0.1/build/Distribution/Extra/Doctest.o )
-ignoring (possibly broken) abi-depends field for packages
-Installing library in /Users/akona/.stack/snapshots/x86_64-osx/lts-12.7/8.4.3/lib/x86_64-osx-ghc-8.4.3/cabal-doctest-1.0.6-E57gwmEN5fa2uY0bq8bb44
-Registering library for cabal-doctest-1.0.6..

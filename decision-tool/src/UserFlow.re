@@ -193,7 +193,7 @@ let make = _children => {
           <AssignScores
             leftPoints={self.state.disadvantagesA}
             leftHeading={"Disadvantages of " ++ self.state.decisionA}
-            rightPoints={self.state.advantagesA}
+            rightPoints={self.state.disadvantagesB}
             rightHeading={"Disadvantages of " ++ self.state.decisionB}
             leftValue={self.state.scoreCompareDisadvAoverB}
             onChange=(

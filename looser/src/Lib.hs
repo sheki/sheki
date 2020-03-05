@@ -48,7 +48,7 @@ deltaPercent a = 100.0 * (delta a) / (doublePrice (open a))
 
 generateMsgStr :: Stock -> APIResponse -> String
 generateMsgStr sym x =
-  printf "%s %.2f %s %s" (ticker sym) (deltaPercent x) (name sym) (industry sym)
+  printf "%s %.2f %s %s open=%.2f close=%.2f %s %s" (ticker sym) (deltaPercent x) (name sym) (industry sym) (doublePrice (open x)) (doublePrice (close x)) (show ( open x)) (show (close x))
 
 getStockPrice :: Stock -> IO (Stock, APIResponse)
 getStockPrice s = do

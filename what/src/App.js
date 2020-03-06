@@ -3,7 +3,6 @@ import Styles from "./App.module.css";
 import Header from "./Header";
 import Slogan from "./Slogan";
 import First from "./First";
-import "./global.css";
 // import "./debug.css";
 
 function Button(props) {
@@ -49,19 +48,22 @@ function App2() {
         <h3 className="f1">Take your kids along</h3>
         <Button href="#" text="Just go god damn it." />
       </div>
-
-      <footer className="footer pv4 ph3 ph5-m ph6-l mid-gray">
-        <small className="f6 db tc">
-          © 2019 <b className="ttu">Irving Place inc.</b>., All Rights Reserved
-        </small>
-      </footer>
     </>
   );
 }
 
+const Footer = () => (
+  <footer className="footer pv4 ph3 ph5-m ph6-l mid-gray">
+    <small className="f6 db tc">
+      © 2019 <b className="ttu">Irving Place inc.</b>., All Rights Reserved
+    </small>
+  </footer>
+);
+
 const App = () => (
   <>
-    <Header /> <First />
+    <Header /> <First /> <Footer />
   </>
 );
+
 export default App;

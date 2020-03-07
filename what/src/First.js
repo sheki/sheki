@@ -18,7 +18,7 @@ const First = () => (
       <div className={" mh3 h-100 " + Styles.text}>
         <div className="f3 mb2 pa4 tc">
           We plan your trip, from picking flights to choosing hotels, and if you
-          want, plan experiences and build you an iternary. Think of us as your
+          want, plan experiences and build you an iternary. Think of us as your new
           travel assistant.
         </div>
         <a

@@ -5,7 +5,7 @@ function Header() {
   return (
     <>
       <div className={Styles.header}>
-        <div className="f1 ml4">Horo</div>
+        <div className="f1 ml4">This way to</div>
         <a
           class="f4 link dim br3 ph3 pv2 mr4 dib white bg-dark-blue"
           href="/form.html"

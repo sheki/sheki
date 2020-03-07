@@ -17,10 +17,14 @@ const First = () => (
     <div className={Styles.first + " mw-100 mt3"}>
       <div className={" mh3 h-100 " + Styles.text}>
         <div className="f3 mb2 pa4 tc">
-          We plan your trips, help you pick flights, choose hotels and if you
-          want will build you an iternary. Think of us as your travel assistant.
+          We plan your trip, from picking flights to choosing hotels, and if you
+          want, plan experiences and build you an iternary. Think of us as your
+          travel assistant.
         </div>
-        <a class="f4 link dim br3 ph3 pv2 mr4 dib white bg-dark-blue" href="#0">
+        <a
+          class="f4 link dim br3 ph3 pv2 mr4 dib white bg-dark-blue"
+          href="/form.html"
+        >
           Take a trip
         </a>
       </div>

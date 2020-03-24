@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
 import "./App.css";
 
-import shoulderStretch from "./shoulderStretch.jpg";
-import underarmStretch from "./underarmstertch.jpg";
-import fullsquat from "./fullsquat.jpg";
-import rearhandclasp from "./rearhandclasp.jpg";
-import hamstring from "./hamstring.webp";
-import kneeleft from "./kneeleft.jpg";
-import kneeright from "./kneeright.jpg";
-import butterfly from "./butterfly.jpg";
-import wheel from "./wheel.jpg";
-import twistleft from "./twistleft.jpeg";
-import twistright from "./twistright.jpeg";
-import hellyeah from "./hellyeah.webp";
+import shoulderStretch from "./images/shoulderStretch.jpg";
+import underarmStretch from "./images/underarmstertch.jpg";
+import fullsquat from "./images/fullsquat.jpg";
+import rearhandclasp from "./images/rearhandclasp.jpg";
+import hamstring from "./images/hamstring.webp";
+import kneeleft from "./images/kneeleft.jpg";
+import kneeright from "./images/kneeright.jpg";
+import butterfly from "./images/butterfly.jpg";
+import wheel from "./images/wheel.jpg";
+import twistleft from "./images/twistleft.jpeg";
+import twistright from "./images/twistright.jpeg";
+import hellyeah from "./images/hellyeah.webp";
 
 const list = [
   {
@@ -172,7 +172,7 @@ function App() {
 }
 
 function Beep() {
-  useEffect(() => beep(99, 210, 800));
+  // useEffect(() => beep(99, 210, 800));
   return (
     <div className="App-header">
       <h2>

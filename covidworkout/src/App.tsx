@@ -89,9 +89,9 @@ const list = [
   {
     videoId: "Tgxj_wdfu1k",
     start: 1,
-    image: twistleft,
+    image: twistright,
     duration: 60,
-    title: "Lying Twist Left",
+    title: "Lying Twist Right",
   },
 
   {
@@ -99,9 +99,15 @@ const list = [
     start: 35,
     image: twistright,
     duration: 60,
-    title: "Lying Twist Right",
+    title: "Pigeon Right",
   },
-
+{
+    videoId: "UPOT2tgY9QQ",
+    start: 35,
+    image: twistright,
+    duration: 60,
+    title: "Pigeon Left",
+  },
   {
     videoId: "A-Tod1_tZdU",
     start: 3,
@@ -123,11 +129,14 @@ function App() {
   const [slideNumber, setSlideNumber] = useState(0);
   const [displayVideo, setDisplayVideo] = useState(false);
 
+
   useEffect(() => {
+
+    const item = list[slideNumber];
     const interval = setInterval(() => {
       setSlideNumber(slideNumber + 1);
       setDisplayVideo(false);
-    }, 60 * 1000);
+    }, item.duration * 1000);
     let secondInterval = setInterval(() => {}, 1000 * 1000);
     if (!displayVideo) {
       clearInterval(secondInterval);
@@ -139,8 +148,8 @@ function App() {
       clearInterval(secondInterval);
     };
   }, [slideNumber, displayVideo]);
-
   const item = list[slideNumber];
+
   return (
     <div className="App">
       <header className="App-header">
